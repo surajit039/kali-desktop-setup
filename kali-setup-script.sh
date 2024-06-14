@@ -4,6 +4,7 @@
 pkexec bash -c "
 echo 'deb http://http.kali.org/kali kali-last-snapshot main contrib non-free non-free-firmware' | tee /etc/apt/sources.list &&
 apt update &&
+apt remove firefox-esr chromium &&
 apt install flatpak gnome-software gnome-software-plugin-flatpak bc ostree appstream-util gnome-shell-extension-caffeine ttf-mscorefonts-installer &&
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &&
 flatpak remote-modify --enable flathub &&
