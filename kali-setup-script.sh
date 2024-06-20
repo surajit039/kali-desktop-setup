@@ -26,7 +26,15 @@ chmod 755 /etc/dconf/db/gdm.d/10-cursor-settings &&
 dconf update &&
 flatpak override --filesystem=xdg-config/gtk-4.0"
 
+# Use the following commands only for user level settings //
+# only when the above root level commands already been executed once to the system.
+# But in case of first time usage do not touch any command, execute the whole.
+
 mkdir -p ~/.local/etc && cd ~/.local/etc/ && git clone https://github.com/vinceliuice/WhiteSur-gtk-theme &&
 ~/.local/etc/WhiteSur-gtk-theme/install.sh -d ~/.local/share/themes -o normal -c Light -t blue -i gnome -l && ~/.local/etc/WhiteSur-gtk-theme/tweaks.sh -F -o normal -c Light -t blue -l
 fc-cache -v -f
+gsettings set org.gnome.desktop.interface document-font-name 'BlinkMacSystemFont 11'
+gsettings set org.gnome.desktop.interface font-name 'BlinkMacSystemFont Medium 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Comic Mono 10'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'BlinkMacSystemFont Semibold 11'
 gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-Light-blue'
